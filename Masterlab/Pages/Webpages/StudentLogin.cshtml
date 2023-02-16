@@ -1,0 +1,35 @@
+﻿@page
+@model Masterlab.Pages.Webpages.StudentLoginModel
+@{
+}
+@{
+
+@if (TempData.ContainsKey("ErrorMessage"))
+{
+<p style="color:red">@TempData["ErrorMessage"]</p>
+}
+}
+@{
+    <h3>Student Information</h3>
+
+ 
+   
+        <form asp-page="StudentLogin">
+            <input asp-for="FirstName" placeholder="First Name" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+            <br />
+            <input asp-for="LastName" placeholder="Second Name" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+            <br />
+        <input asp-for="Phone" placeholder="Email Address" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+        <br />
+            <button asp-page="StudentLogin" asp-page-handler="PopulateToHandler" formnovalidate>Submit</button>
+        <button asp-page="StudentLogin" asp-page-handler="PopulateHandler" formnovalidate>Populate</button>
+        <button type="button" onclick="location.href='@Url.Page("/Webpages/StudentLogin")'">Clear Fields</button>
+
+
+        </form>
+    }
+
+

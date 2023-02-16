@@ -1,0 +1,35 @@
+﻿@page
+@model Masterlab.Pages.Faculty.SchedulingModel
+@{
+
+}
+<h1>Faculty Dashboard</h1>
+<br />
+
+@{
+    <br />
+    <h2>Schedule new timeslot</h2>
+    <form asp-page-handler="DateAndTime" method="post">
+        <input type="text" name="OfficeHoursID" placeholder="Office Hours ID" />
+        <br />
+        Date and Time:<br />
+        <input type="date" asp-for="Date" value="@DateTime.Now.ToString("yyyy-MM-dd")" /> Date
+        <br />
+        <input type="time" asp-for="StartTime" value="@DateTime.Now.ToString("hh:mm tt")" /> Start Time
+        <br />
+        <input type="time" asp-for="EndTime" value="@DateTime.Now.ToString("hh:mm tt")" /> End Time
+        <br />
+        <input type="text" name="Purpose" size="100" placeholder="Type Purpose:" />
+        <br />
+        <input type="text" name="InstructorID" size="10" placeholder="InstructorID:" />
+        <br />
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    @if (Model.DateTimeMessage != null)
+    {
+        <p>@Model.DateTimeMessage</p>
+
+
+    }
+
+}

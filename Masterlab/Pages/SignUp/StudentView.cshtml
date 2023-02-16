@@ -1,0 +1,65 @@
+﻿@page
+@model Masterlab.Pages.SignUp.StudentViewModel
+@{
+    ViewData["Title"] = "Office Hours Sign Up";
+
+}
+<br />
+<br />
+<h3>Office Hours Sign Up</h3>
+<p>Select which professor you would like to sign up with</p>
+<select class="form-select">
+    <option selected></option>
+
+    @{
+        foreach (var instructor in Model.InstructorList)
+        {
+
+                //<p>@product.ProductName</p>
+            <tr>
+            <option value=@instructor.InstructorID>
+                <td>@instructor.FirstName</td>
+                <td>@instructor.LastName</td>
+            </option>
+
+            </tr>
+        }
+    }
+</select>
+
+<br />
+<br />
+<br />
+<p>Select which date/time you would like to sign up for</p>
+<select class="form-select">
+    <option selected></option>
+
+    @{
+
+
+        foreach (var OfficeHours in Model.OfficeHoursList)
+        {
+            <tr>
+            <option value=@OfficeHours.OfficeHoursID>
+                <td>@OfficeHours.LastName</td>
+                <p>-   </p>
+                <td>@OfficeHours.Date</td>
+                <td>@OfficeHours.StartTime</td>
+                <p>to</p>
+                <td>@OfficeHours.EndTime</td>
+            </option>
+
+            </tr>
+
+        }
+    }
+</select>
+<br />
+<form asp-action="BasicLogin">
+    <input type="submit" class="btn btn-primary" value="Submit" OnServerClick="submited" />
+</form>
+<br />
+<br />
+<br />
+<br />
+<br />

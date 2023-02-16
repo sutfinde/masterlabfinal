@@ -1,0 +1,31 @@
+﻿@page
+@model Masterlab.Pages.Webpages.StudentIndexModel
+@{
+}
+@{
+    ViewData["Title"] = "Student Dashboard";
+}
+<h2>Student View</h2>
+<table class="table table-bordered table-responsive table-hover">
+    <thead>
+        <tr>
+            <th>Student ID:</th>
+            <th>Student First Name:</th>
+            <th>Product Last Name:</th>
+            <th>Product Phone:</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var student in Model.StudentList)
+            {
+                <tr>
+                    <td class="text-danger">@student.StudentID</td>
+                    <td>@student.FirstName</td>
+                    <td>@student.LastName</td>
+                    <td>@student.Phone</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

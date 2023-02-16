@@ -1,0 +1,63 @@
+-- create statements for database
+CREATE TABLE MEETING(
+MeetingID int NOT NULL,
+Purpose varchar(20) NOT NULL,
+MeetingDetails DateTime NOT NULL,
+CONSTRAINT MEETING_PK PRIMARY KEY ([MeetingID] ASC));
+
+CREATE TABLE INSTRUCTOR(
+InstructorID int IDENTITY(1,1) NOT NULL,
+FirstName varchar(10) NOT NULL,
+LastName varchar(15) NOT NULL,
+EmailAddress varchar(25) NOT NULL,
+CONSTRAINT INSTRUCTOR_PK PRIMARY KEY ([InstructorID] ASC));
+
+--populating faculty
+INSERT INTO INSTRUCTOR VALUES('Jeremy', 'Ezell', 'jezell@jmu.edu')
+INSERT INTO INSTRUCTOR VALUES('Carey', 'Cole', 'ccole@jmu.edu')
+INSERT INTO INSTRUCTOR VALUES(3, 'Elham', 'Torabi', 'etorabi@jmu.edu')
+INSERT INTO INSTRUCTOR VALUES(4, 'Bobby', 'Vaziri', 'bvaziri@jmu.edu')
+INSERT INTO INSTRUCTOR VALUES(5, 'Mike', 'Mitri', 'mmitri@jmu.edu')
+INSERT INTO INSTRUCTOR VALUES(6, 'John', 'Doe', 'jdoe@jmu.edu')
+INSERT INTO INSTRUCTOR VALUES(7, 'Tom', 'Dillon', 'tdillon@jmu.edu')
+INSERT INTO INSTRUCTOR VALUES(8, 'Diane', 'Lending', 'dlending@jmu.edu')
+INSERT INTO INSTRUCTOR VALUES(9, 'James', 'Jewett', 'jjewett@jmu.edu')
+
+CREATE TABLE LOCATION(
+OfficeNumber varchar(4) NOT NULL,
+BuildingName varchar(10) NOT NULL, 
+CONSTRAINT LOCATION_PK PRIMARY KEY (OfficeNumber ASC));
+
+CREATE TABLE QUEUE(
+QueueNumber int NOT NULL,
+CONSTRAINT QUEUE_PK PRIMARY KEY ([QueueNumber] ASC));
+
+
+CREATE TABLE OFFICEHOURS(
+OfficeHoursID int NOT NULL,
+Date varchar(11) NOT NULL,
+StartTime DATETIME NOT NULL,
+EndTime DATETIME NOT NULL,
+Purpose varchar(45) NULL, 
+InstructorID int NULL,
+LastName varchar(15) NULL,
+CONSTRAINT OFFICEHOURS_PK PRIMARY KEY ([OfficeHoursID] ASC));
+
+SELECT DISTINCT FirstName,Instructor.LastName FROM INSTRUCTOR INNER JOIN OFFICEHOURS ON INSTRUCTOR.INSTRUCTORID=OFFICEHOURS.INSTRUCTORID
+
+CREATE TABLE STUDENT(
+StudentID int IDENTITY(1,1) NOT NULL,
+FirstName varchar(10) NOT NULL,
+LastName varchar(15) NOT NULL,
+Phone varchar(12) NOT NULL,
+CONSTRAINT STUDENT_PK PRIMARY KEY ([StudentID] ASC)
+);
+INSERT INTO STUDENT VALUES (1234, 'Dana', 'Sutfin', 2346789283)
+
+CREATE TABLE CLASS(
+ClassID int NOT NULL, 
+ClassName varchar(20) NOT NULL,
+CONSTRAINT CLASS_PK PRIMARY KEY ([ClassID] ASC));
+
+
+SELECT * FROM OfficeHours JOIN INSTRUCTOR ON OfficeHours.InstructorID=Instructor.InstructorID;

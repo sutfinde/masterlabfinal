@@ -1,0 +1,15 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Lab 1 - Reuben Mast, John O'neill, Dana Sutfin";
+    
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome! Lab 1</h1>
+    <p>John O'neill, Reuben Mast, and Dana Sutfin</p>
+</div>
+<button type="button" class="btn btn-primary" onclick="location.href='@Url.Page("/Webpages/FacultyLogin")'">Faculty</button>
+<button type="button" class="btn btn-success" onclick="location.href='@Url.Page("/Webpages/StudentLogin")'">Student</button>
+<button type="button" class="btn btn-info" onclick="location.href='@Url.Page("/Faculty/Scheduling")'">Instructor Scheduling</button>
+<button type="button" class="btn btn-warning" onclick="location.href='@Url.Page("/SignUp/StudentView")'">Office Hours Sign Up</button>
